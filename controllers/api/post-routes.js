@@ -38,6 +38,22 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.post('/post', (req, res) => {
+  const newPost = new Post({
+      title: req.body.title,
+      body: req.body.body
+  });
+
+  newPost.save((err) => {
+      if (err) {
+          console.error(err);
+          res.status(500).send('Error creating post');
+      } else {
+          res.redirect('/dashboard');
+      }
+  });
+});
+
 router.put('/:id', async (req, res) => {
   try {
     const [updatedRows] = await Post.update(req.body, {
