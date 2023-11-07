@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
         {
           model: Comment,
           attributes: ['content', 'author'],
-        }, 
+        },
       ],
     });
 
@@ -34,14 +34,15 @@ router.get('/', async (req, res) => {
 
 router.get('/dashboard', async (req, res) => {
   try {
-    const dbPostData = await Post.findAll({where:{
-
-    };
+    const dbPostData = await Post.findAll({
+      where: {
+        user_id: req.session.user_id
+      },
       include: [
         {
           model: Comment,
-          attributes: ['content', 'author'],
-        }, 
+          include: [User]
+        },
       ],
     });
 
