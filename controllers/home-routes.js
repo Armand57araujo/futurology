@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, Comment } = require('../models');
+const { Post, Comment, User } = require('../models');
 
 // GET all blog posts for homepage
 router.get('/', async (req, res) => {
@@ -34,7 +34,9 @@ router.get('/', async (req, res) => {
 
 router.get('/dashboard', async (req, res) => {
   try {
-    const dbPostData = await Post.findAll({
+    const dbPostData = await Post.findAll({where:{
+
+    };
       include: [
         {
           model: Comment,

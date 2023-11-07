@@ -6,6 +6,7 @@ const data = [
     content: 'JavaScript Promises are used for asynchronous programming. A promise represents the eventual result of an asynchronous operation...',
     author: 'John Doe',
     created_at: 'April 20, 2021 07:00:00',
+    user_id: 1
   },
   {
     title: 'Getting Started with React Hooks',
