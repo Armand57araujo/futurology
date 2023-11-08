@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Dashboard</title>
-</head>
-<body>
+
     <h1>Dashboard</h1>
-    <form action="/post" method="post">
+    <form class = "submission">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title"><br>
 
@@ -14,5 +9,20 @@
 
         <input type="submit" value="Submit">
     </form>
-</body>
-</html>
+{{#if posts.length}}
+  <div class="col-md-6 project-list">
+    <h3>Current Posts:</h3>
+    {{#each posts}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/edit/{{id}}">{{title}}</a></h4>
+      </div>
+      <p> {{content}}</p>
+      <div class="col-md-4">
+ <p> Created On {{created_at}}</p>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
