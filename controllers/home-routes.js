@@ -24,14 +24,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-
-
-
-
-
-
-
-
 router.get('/dashboard', async (req, res) => {
   try {
     const dbPostData = await Post.findAll({
@@ -56,15 +48,6 @@ router.get('/dashboard', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
-
-
-
-
-
-
-
 
 // GET one blog post
 router.get('/post/:id', async (req, res) => {

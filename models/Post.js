@@ -15,7 +15,7 @@ Post.init(
     },
     author: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     }
     // Add more columns?
   },

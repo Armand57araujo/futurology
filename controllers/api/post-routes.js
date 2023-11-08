@@ -39,10 +39,12 @@ router.post('/', async (req, res) => {
 });
 
 router.post('/post', (req, res) => {
+  console.log(newPost)
   const newPost = new Post({
       title: req.body.title,
-      body: req.body.body
+      body: req.body.content,
   });
+  
 
   newPost.save((err) => {
       if (err) {
