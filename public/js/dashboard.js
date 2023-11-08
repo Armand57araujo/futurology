@@ -1,25 +1,26 @@
-// function handlePostSubmit (e) {
-//     e.preventDefault()
-// }
-// const title = document.querySelector('#post-title').value.trim();
+async function handlePostSubmit (e) {
+    e.preventDefault()
+
+const title = document.querySelector('#title').value.trim();
+const body = document.querySelector('#body').value.trim();
  
 
-//   if (title && needed_funding && description) {
-//     const response = await fetch(`/api/posts`, {
-//       method: 'POST',
-//       body: JSON.stringify({ title, description }),
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//     });
+  if (title && body) {
+    const response = await fetch(`/api/posts`, {
+      method: 'POST',
+      body: JSON.stringify({ title, content:body }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
-//     if (response.ok) {
-//       document.location.replace('/profile');
-//     } else {
-//       alert('Failed to create post');
-//     }
-//   };
-
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert('Failed to create post');
+    }
+  };
+}
 // const delButtonHandler = async (event) => {
 //   if (event.target.hasAttribute('data-id')) {
 //     const id = event.target.getAttribute('data-id');
@@ -41,38 +42,38 @@
 //   .addEventListener('submit', newFormHandler);
 
 
-// document.querySelector(".submission")
-// .addEventListener("submit", handlePostSubmit)
+document.querySelector("#btn")
+.addEventListener("click", handlePostSubmit)
 
 
 
-const loginFormHandler = async (event) => {
-    event.preventDefault();
+// const loginFormHandler = async (event) => {
+//     event.preventDefault();
 
-    const title = document.querySelector('#title').value.trim();
-    const description = document.querySelector('#body').value.trim();
-    console.log(title, description)
-    if (title && description) { 
+//     const title = document.querySelector('#title').value.trim();
+//     const description = document.querySelector('#body').value.trim();
+//     console.log(title, description)
+//     if (title && description) { 
 
-      const response = await fetch('/api/posts', {
-        method: 'POST',
-        body: JSON.stringify({ title, description }),
-        headers: { 'Content-Type': 'application/json' },
+//       const response = await fetch('/api/posts', {
+//         method: 'POST',
+//         body: JSON.stringify({ title, description }),
+//         headers: { 'Content-Type': 'application/json' },
 
-      });
+//       });
 
-      if (response.ok) {
-         document.location.replace('/dashboard');
-      } else {
-        alert('Failed to create a post.');
-      }
-    }
-  };
+//       if (response.ok) {
+//          document.location.replace('/dashboard');
+//       } else {
+//         alert('Failed to create a post.');
+//       }
+//     }
+//   };
 
 
-  document
-  .querySelector('#submit')
-  .addEventListener('click', loginFormHandler);
+//   document
+//   .querySelector('#submit')
+//   .addEventListener('click', loginFormHandler);
 
 
 
