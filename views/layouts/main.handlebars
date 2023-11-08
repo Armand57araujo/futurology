@@ -13,14 +13,23 @@
     <h1>Welcome to FUTUROLOGY</h1>
   </header>
   <nav>
+     {{#if loggedIn}}
     <a href="/">Home</a>
+    {{/if}}
+    
+    {{#if loggedIn}}
+    <a href="/dashboard">Dashboard</a>
+    {{/if}}
+
     {{#if loggedIn}}
     <button id="logout" class="btn-no-style">Logout</button>
     {{else}}
     <a href="/login">Login</a>
     {{/if}}
+    
   </nav>
   <main>
+    {{#if loggedIn}}
     <aside>
       <h2>Latest Posts</h2>
       <!-- Add a list of recent blog posts here -->
@@ -31,7 +40,7 @@
         <li><a href="/post/4">Web Development Best Practices</a></li>
       </ul>
     </aside>
-    
+    {{/if}}
     <div class="post">
       {{{body}}}
     </div>
