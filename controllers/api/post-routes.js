@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const post = await Post.findByPk(req.params.id, {
-      include: [{ model: Comment }],
+      include: [{ model: Comment, include: [{ model: User }]}]
     });
     if (!post) {
       res.status(404).json({ message: 'Post not found' });

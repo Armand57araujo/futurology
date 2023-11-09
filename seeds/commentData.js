@@ -17,6 +17,7 @@ const commentdata = [
     content: 'RESTful APIs are the backbone of modern web applications.',
     author: 'APIGuru',
     post_id: 4,
+    user_id: 4,
   },
   {
     content: 'These web development best practices are crucial for performance optimization.',
