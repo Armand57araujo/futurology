@@ -17,7 +17,15 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: true,
       defaultValue: "N/A"
-    }
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
+    },
     // Add more columns?
   },
   {

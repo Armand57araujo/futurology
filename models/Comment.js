@@ -12,7 +12,15 @@ Comment.init(
     author: {
       type: DataTypes.STRING,
       allowNull: false
-    }
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
+    },
     // Add more columns ?
   },
   {

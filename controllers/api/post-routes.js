@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const { Post, Comment } = require('../../models');
+const { Post, Comment, User } = require('../../models');
 
 // The `/api/posts` endpoint
 
 router.get('/', async (req, res) => {
   try {
     const posts = await Post.findAll({
-      include: [{ model: Comment }],
+      include: [{ model: Comment, include: [{ model: User }]}]
     });
     res.json(posts);
   } catch (error) {
